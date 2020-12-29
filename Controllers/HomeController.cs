@@ -23,7 +23,17 @@ namespace Practica_04.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Fail()
+        {
+            return View();
+        }
+
+        public IActionResult CrearCuenta()
+        {
+            return View();
+        }
+
+        public IActionResult IniciarSesion()
         {
             return View();
         }
