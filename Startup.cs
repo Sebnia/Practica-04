@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Practica_04.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Practica_04
 {
@@ -27,6 +28,10 @@ namespace Practica_04
         {
             services.AddDbContext<FailsContext>(dco => dco.UseInMemoryDatabase("WebAppBD"));
             services.AddControllersWithViews();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<FailsContext>()
+            .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +53,9 @@ namespace Practica_04
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
+
 
             app.UseEndpoints(endpoints =>
             {
