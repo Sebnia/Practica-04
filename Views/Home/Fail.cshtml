@@ -1,26 +1,28 @@
+@model Fails;
+
 @{
     ViewData["Title"] = "Sube tu Fail";
 }
 
 <h1>Sube tu Fail</h1>
 
-<form action="" method="post">
+<form asp-controller="Home" asp-action="Registrar" enctype = "multipart/form-data">
 
 
     <div class="mb-3 row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Usuario</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">@User.Identity.Name</label>
         <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="UsuarioEjemplo">
+            <input type="hidden" readonly class="form-control-plaintext" asp-for="userName" value="@User.Identity.Name">
         </div> 
 
             <div class="mb-3">
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" asp-for="imageFile">
             </div>
     </div>
 
     <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Título del Fail</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Pongale un título a su fail">
+        <input type="text" class="form-control" asp-for="imageTitle" placeholder="Pongale un título a su fail">
     </div>
 
     <button type="submit" class="btn btn-primary">Enviar</button>

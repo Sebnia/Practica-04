@@ -2,10 +2,27 @@
     ViewData["Title"] = "Perú Fails";
 }
 
+@model List<Fails>
+
+
 <div class="text-left">
     <img src="img/fails.jpg" width="600" height="350">
 </div>
 
 <div class="text-right">
     <h1 class="display-4">Bienvenido a Perú Fails</h1>
+</div>
+
+<div class="container">
+
+        @foreach (var item in Model)
+		{
+            <div>
+            <h1>@item.imageTitle</h1>
+            <img src="@("img/" + item.rootImageProduct)" asp-asp-append-version="true" style="height: 250px">
+            <p>@item.userName</p>
+            </div>
+
+        }
+
 </div>

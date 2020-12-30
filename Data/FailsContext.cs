@@ -6,6 +6,7 @@ namespace Practica_04.Data
 {
     public class FailsContext : IdentityDbContext
     {
+        public DbSet<Practica_04.Models.Fails> Fails {get; set;} 
         public FailsContext(DbContextOptions dco) : base(dco) {
             
         }
